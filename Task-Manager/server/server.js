@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose")
 const cors = require("cors");
 const dotenv = require("dotenv");
+const taskRoutes = require("./routes/taskRoutes");
 
 
 dotenv.config();
@@ -17,6 +18,8 @@ mongoose
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+app.use("/api/tasks", taskRoutes);
 
 // Test Route
 app.get("/", (req, res) => {
