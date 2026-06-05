@@ -83,9 +83,36 @@ const deleteTask = async (req, res)=>{
     }
 }
 
+const addJournalEntry = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { note } = req.body; 
+
+        if (!note) {
+            return res.status(400).json({ message: "Journal note text is required" });
+        }
+
+        const updatedTask = await Task.findByIdAndUpdate(
+            id,
+            { $push: { journal: { note } } }, 
+            { new: true, runValidators: true }
+        );
+
+        if (!updatedTask) {
+            return res.status(404).json({ message: "Task not found" });
+        }
+
+        res.status(200).json(updatedTask);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 module.exports = {
     createTask,
     getTasks,
     updateTask,
     deleteTask,
+    addJournalEntry,
+
 }
