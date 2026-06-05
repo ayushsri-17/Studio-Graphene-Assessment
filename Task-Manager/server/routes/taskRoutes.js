@@ -1,30 +1,16 @@
-const express =  require("express")
+const express = require("express")
 const router = express.Router()
-const Task = require("../models/Task")
 
-router.post("/", async (req, res)=>{
-    try{
-        const{title, description, dueDate} = req.body;
+const { 
+       createTask, 
+       getTasks,
+       updateTask,
+       deleteTask,
+      } = require("../controllers/taskController")
 
-        if(!title){
-            return res.status(400).json({
-                message:"Title is required",
-            })
-        }
-
-        const task = await Task.create({
-            title,
-            description,
-            dueDate,
-        })
-        res.status(201).json(task)
-
-    }catch(error){
-        res.status(400).json({
-            message:error.message,
-        })
-
-    }
-})
+router.post("/", createTask)
+router.get("/", getTasks)
+router.put("/:id", updateTask)
+router.delete("/:id", deleteTask)
 
 module.exports = router;
