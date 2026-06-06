@@ -219,3 +219,31 @@
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 
+.stats{
+  padding: 8px 16px;
+  font-weight: 500;
+   justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+
+.filterContainer{
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px 16px;
+  margin: 10px;
+}
+
+.fltr-btn{
+  padding: 8px 16px;
+  margin: 10px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+
+

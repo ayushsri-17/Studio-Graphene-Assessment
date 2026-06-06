@@ -11,6 +11,7 @@ import {
 function App() {
   const [tasks, setTasks] = useState([]);
   const [editingTask, setEditingTask] = useState(null);
+  const [filter, setFilter] = useState("all");
 
   useEffect(() => {
     fetchTasks();
@@ -99,15 +100,47 @@ const handleUpdateTask = async (id, updatedData) => {
   }
 };
 
+    const filteredTasks = tasks.filter((task) => {
+      if (filter === "active") return !task.completed;
+      if (filter === "completed") return task.completed;
+      return true;
+    });
+
+    const activeCount = tasks.filter(
+      (task) => !task.completed
+    ).length;
+
+    const completedCount = tasks.filter(
+      (task) => task.completed
+    ).length;
+
   return (
     <div>
       <h1 style={{textAlign:"center"}}>Task Manager</h1>
       <TaskForm onAddTask={handleAddTask}
       editingTask={editingTask} 
       onUpdateTask={handleUpdateTask} />
-      
-      <TaskList
-        tasks={tasks}
+
+      <div className="filterContainer">
+        <button className="fltr-btn" onClick={() => setFilter("all")}>
+          All
+        </button>
+
+        <button className="fltr-btn" onClick={() => setFilter("active")}>
+          Active
+        </button>
+
+        <button className="fltr-btn" onClick={() => setFilter("completed")}>
+          Completed
+        </button>
+      </div>
+
+       <div className="stats">
+        <p>Active: {activeCount}</p>
+        <p>Completed: {completedCount}</p>
+      </div>
+    
+       <TaskList tasks={filteredTasks} 
         ondeleteTask={handleDeleteTask}
         onToggleTask={handleToggleTask}
         onEditTask={handleEditTask}
