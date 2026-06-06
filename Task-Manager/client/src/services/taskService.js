@@ -22,7 +22,3 @@ export const deleteTask = async (id) => {
   return response.data;
 };
 
-export const addJournalEntry = async (id, note) => {
-  const response = await axios.post(`${API_URL}/${id}/journal`, { note });
-  return response.data;
-};

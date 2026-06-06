@@ -4,6 +4,7 @@ export default function TaskList({ tasks, ondeleteTask, onToggleTask, onEditTask
   return (
     <div className="container">
       <h2 className="title">Tasks</h2>
+      
 
       {tasks.length === 0 ? (
         <p className="emptyMessage">No tasks yet.</p>
@@ -11,8 +12,16 @@ export default function TaskList({ tasks, ondeleteTask, onToggleTask, onEditTask
         tasks.map((task) => (
           <div key={task._id} className="taskCard">
             <h3 className="taskTitle">{task.title}</h3>
+            
 
             <p className="taskDescription">{task.description}</p>  
+           <p className="taskStatus">
+              <strong>Status:</strong>{" "}
+              {task.completed ? "✅ Completed" : "⏳ Active"}
+            </p>
+
+            <br/>
+             
 
             {task.dueDate && (
               <p className="taskDate">
@@ -21,10 +30,7 @@ export default function TaskList({ tasks, ondeleteTask, onToggleTask, onEditTask
               </p>
             )}
 
-            <p className="taskStatus">
-              <strong>Status:</strong>{" "}
-              {task.completed ? "✅ Completed" : "⏳ Active"}
-            </p>
+           
             <button className="deleteButton" onClick={() => ondeleteTask(task._id)}>
              Delete
             </button>

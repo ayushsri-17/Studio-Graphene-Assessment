@@ -17,12 +17,7 @@ const taskSchema = new mongoose.Schema(
         completed:{
             type:Boolean,
             default:false,
-        },
-        journal:{
-            type:String,
-            trim:true,
-            default:" ",
-        }       
+        },      
     },
 {
     timestamps:true,
