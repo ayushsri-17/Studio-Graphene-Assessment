@@ -6,7 +6,6 @@ const {
        getTasks,
        updateTask,
        deleteTask,
-       addJournalEntry,
       } = require("../controllers/taskController")
 
 router.post("/", createTask)
