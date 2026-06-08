@@ -1,4 +1,17 @@
-*{
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-
+html,
+body,
+#root {
+  min-height: 100vh;
+  margin: 0;
 }
+
+body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(
+    135deg,
+    #e0c3fc 0%,
+    #8ec5fc 50%,
+    #e2fad4 100%
+  );
+}
+

@@ -1,16 +1,26 @@
 .taskForm {
-  background-color: #ffffff;
-  border: 1px solid #f0f0f0;
-  border-radius: 12px;
-  margin: 10px auto; 
-  padding: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03); 
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   width: 100%;
-  max-width: 900px; 
-  box-sizing: border-box;   
+  max-width: 900px;
+  margin: 10px auto;
+  padding: 20px;
+  box-sizing: border-box;
+
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.taskForm:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(31, 38, 135, 0.2);
+}
 
 .formTitle {
   font-size: 1.2rem;
@@ -30,17 +40,18 @@
   font-weight: 500;
   color: #4b5563;
   margin-bottom: 6px;
+  background: none;
 }
 
 .formInput {
+  border-radius: 10px;
   width: 100%;
   padding: 10px 14px;
   font-size: 0.95rem;
   font-family: inherit;
   color: #1f2937;
-  background-color: #fff;
+  background-color: #ffffff !important;
   border: 1px solid #d1d5db;
-  border-radius: 8px;
   box-sizing: border-box;
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
@@ -51,30 +62,13 @@
 
 .formInput:focus {
   outline: none;
-  border-color: #4f46e5; /* Premium Indigo Brand Color */
+  border-color: #4f46e5; 
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
 }
 
 .formTextarea {
   min-height: 80px;
   resize: vertical;
-}
-
-/* Premium SaaS Action Button */
-.formButton {
-  display: block;     
-  margin: 20px auto 0;
-  width: 20%;
-  padding: 10px 16px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  font-family: inherit;
-  color: #ffffff;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.1s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .formButton:hover {
@@ -84,6 +78,7 @@
 .formButton:active {
   transform: scale(0.98);
 }
+
 .addVariant {
   background-color: #2563eb;
   color: #ffffff;
@@ -93,8 +88,6 @@
   background-color: #0d9488;
   color: #ffffff;
 }
-
-/*Task Lists */
 
 .container {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -120,18 +113,24 @@
 }
 
 .taskCard {
-  background-color: #ffffff;
-  border: 1px solid #eeebeb;
-  border-radius: 12px;
   padding: 16px;
-  margin-bottom: 12px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  margin-bottom: 16px;
+
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 14px;
+
+  box-shadow: 0 6px 24px rgba(31, 38, 135, 0.12);
+
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .taskCard:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(31, 38, 135, 0.18);
 }
 
 .taskTitle {
@@ -149,50 +148,24 @@
   margin: 0 0 12px 0;
 }
 
-/* Flex layout to keep meta info clean and aligned */
 .taskDate,
 .taskStatus {
   display: inline-block;
   font-size: 0.85rem;
   font-weight: 500;
-  margin:25px;
+  margin: 25px;
+ 
 }
 
 .taskDate {
-  color: #9ca3af;
+   color: black;
 }
 
 .taskStatus {
   padding: 2px 8px;
   border-radius: 6px;
-  background-color: #f3f4f6; /* Default neutral background */
+  background-color: #f3f4f6; 
   color: #4b5563;
-}
-
-.deleteButton {
-  width: 20%;
-  margin: 15px;
-  padding: 8px 16px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  font-family: inherit;
-  color: #ffffff;
-  background-color: #e54646;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.1s ease;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
-
-.toggleButton {
-  padding: 8px 16px;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  font-weight: 500;
-  margin: 15px;
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .activeState {
@@ -207,28 +180,18 @@
   border-color: #dcfce7;
 }
 
-.editButton{
-  width: 20%;
-  margin: 15px;
-  padding: 8px 16px;
-  margin: 20px;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-}
 
-.stats{
+
+.stats {
   padding: 8px 16px;
   font-weight: 500;
-   justify-content: center;
+  justify-content: center;
   display: flex;
   flex-wrap: wrap;
   gap: 50px;
 }
 
-.filterContainer{
+.filterContainer {
   justify-content: center;
   display: flex;
   flex-wrap: wrap;
@@ -236,17 +199,7 @@
   margin: 10px;
 }
 
-.fltr-btn {
-  padding: 8px 16px;
-  margin: 10px;
-  border: 1px solid transparent;
-  border-radius: 6px;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
-}
-
-.overdueText{
+.overdueText {
   background-color: rgba(255, 0, 0, 0.612);
   padding: 8px 16px;
   color: white;
@@ -258,18 +211,108 @@
   transition: background-color 0.2s, color 0.2s, border-color 0.2s;
 }
 
-.search-bar{
- width: 60%;
- margin: 0 auto; 
- justify-content: center; 
- padding: 10px 14px;
- font-size: 0.95rem;
- font-family: inherit;
- color: #1f2937;
- background-color: #fff;
- border: 1px solid #777a7d;
- border-radius: 8px;
- box-sizing: border-box;
- transition: border-color 0.15s ease, box-shadow 0.15s ease;
- display: block;
+.search-bar {
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+  font-size: 18px;
+  padding: 12px 16px;
+
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+
+  color: #1f2937;
+
+  transition: all 0.2s ease;
 }
+
+.search-bar:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.15);
+}
+
+
+.formButton,
+.deleteButton,
+.editButton,
+.toggleButton,
+.fltr-btn {
+  margin: 10px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.08),
+    inset 0 1px 1px rgba(255, 255, 255, 0.2);
+}
+
+.formButton:hover,
+.deleteButton:hover,
+.editButton:hover,
+.toggleButton:hover,
+.fltr-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.12),
+    inset 0 1px 1px rgba(255, 255, 255, 0.3);
+}
+
+.formButton:active,
+.deleteButton:active,
+.editButton:active,
+.toggleButton:active,
+.fltr-btn:active {
+  transform: translateY(0);
+}
+
+
+.addVariant {
+  background: rgba(18, 82, 177, 0.45);
+}
+
+.updateVariant {
+  background: rgba(13, 148, 136, 0.45);
+}
+
+.deleteButton {
+  background: rgba(239, 68, 68, 0.826);
+}
+
+.editButton {
+  background: rgba(14, 19, 154, 0.638);
+}
+
+.activeState {
+  background: rgba(251, 146, 60, 0.35);
+  color: #fff;
+}
+
+.completeState {
+  background: rgba(15, 117, 52, 0.801);
+  color: #fff;
+}
+
+.fltr-btn {
+  background: rgba(255, 255, 255, 0.2);
+  color: #111827;
+}
+
+.overdueText {
+  background: rgba(239, 68, 68, 0.35);
+  backdrop-filter: blur(12px);
+  color: white;
+}
+
